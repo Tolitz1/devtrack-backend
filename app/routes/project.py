@@ -46,9 +46,7 @@ def get_my_projects(
     # Get projects owned by authenticated user.
     # """
 
-    projects = db.query(Project).filter(
-        Project.owner_id == current_user.id
-    ).all()
+    projects = db.query(Project).filter(Project.owner_id == current_user.id).all()
 
     return projects
 
@@ -85,9 +83,9 @@ def delete_project(
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user)
 ):
-    """
-    Delete project only if owned by current user.
-    """
+    # """
+    # Delete project only if owned by current user.
+    # """
 
     project = db.query(Project).filter(Project.id == project_id).first()
 
