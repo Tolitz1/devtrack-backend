@@ -9,17 +9,17 @@ from pydantic import BaseModel, EmailStr
 
 
 class UserCreate(BaseModel):
-    """
-    Schema for creating a new user.
-    """
+    # """
+    # Schema for creating a new user.
+    # """
     email: EmailStr
     password: str
 
 
 class UserResponse(BaseModel):
-    """
-    Schema returned to client.
-    """
+    # """
+    # Schema returned to client.
+    # """
     id: int
     email: EmailStr
 
