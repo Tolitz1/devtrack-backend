@@ -6,6 +6,8 @@ from app.routes.task import router as task_router
 from app.models import user
 from app.models import project
 from app.models import task
+from fastapi.middleware.cors import CORSMiddleware
+
 
 
 app = FastAPI(title="DevTrack API")
@@ -15,6 +17,18 @@ Base.metadata.create_all(bind=engine)
 app.include_router(user_router)
 app.include_router(project_router)
 app.include_router(task_router)
+
+origins = [
+    "http://localhost:5173",
+] 
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")  
 def read_root():
