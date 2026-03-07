@@ -1,22 +1,18 @@
+import os
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, declarative_base, Session
-from app.core.config import DATABASE_URL
+from sqlalchemy.orm import sessionmaker, declarative_base
+
+DATABASE_URL = os.getenv("DATABASE_URL")  # read directly, no dotenv
 
 engine = create_engine(DATABASE_URL)
-
 SessionLocal = sessionmaker(
     autocommit=False,
     autoflush=False,
     bind=engine
 )
-
 Base = declarative_base()
 
 def get_db():
-    # """
-    # Dependency that provides a database session
-    # and ensures it closes after request.
-    # """
     db = SessionLocal()
     try:
         yield db
