@@ -14,6 +14,9 @@ class UserCreate(BaseModel):
     # """
     email: EmailStr
     password: str
+    first_name: str
+    middle_name: str | None = None
+    last_name: str
 
 
 class UserResponse(BaseModel):
@@ -22,6 +25,9 @@ class UserResponse(BaseModel):
     # """
     id: int
     email: EmailStr
+    first_name: str
+    middle_name: str | None = None
+    last_name: str
 
     class Config:
         from_attributes = True
