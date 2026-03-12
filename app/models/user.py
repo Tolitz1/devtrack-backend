@@ -23,3 +23,5 @@ class User(Base):
     first_name = Column(String, nullable=False)
     middle_name = Column(String, nullable=True)
     last_name = Column(String, nullable=False)
+    is_admin = Column(Integer, default=0) 
+    office = Column(String, nullable=False)
