@@ -10,6 +10,8 @@ class OfficeResponse(BaseModel):
     office_name: str
     office_code: str
     created_at: datetime
+    updated_at: datetime
+
 
     class Config:
         from_attributes = True

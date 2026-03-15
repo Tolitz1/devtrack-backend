@@ -4,10 +4,10 @@ from app.routes.user import router as user_router
 from app.routes.project import router as project_router
 from app.routes.task import router as task_router
 from app.routes.office import router as office_router
-from app.models import user
-from app.models import project
-from app.models import task
-from app.models.office import Office
+# from app.models import user
+# from app.models import project
+# from app.models import task
+# from app.models.office import Office
 from fastapi.middleware.cors import CORSMiddleware
 
 

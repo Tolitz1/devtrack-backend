@@ -17,6 +17,8 @@ class UserCreate(BaseModel):
     first_name: str
     middle_name: str | None = None
     last_name: str
+    office: str
+    position: str
 
 
 class UserResponse(BaseModel):
@@ -28,6 +30,8 @@ class UserResponse(BaseModel):
     first_name: str
     middle_name: str | None = None
     last_name: str
+    office: str
+    position: str
 
     class Config:
         from_attributes = True
