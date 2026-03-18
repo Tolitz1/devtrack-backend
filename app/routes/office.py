@@ -58,10 +58,10 @@ def list_offices(
         db: Session = Depends(get_db),
         current_user: User = Depends(get_current_user)
     ):
-    if not current_user.is_admin != 1:
+    if current_user.is_admin != 1:
         raise HTTPException(
             status_code=403,
             detail="Not authorized. Admin access required."
         )
     offices = db.query(Office).all()
-    return offices          
+    return offices

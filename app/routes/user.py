@@ -3,6 +3,7 @@
 # """
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
+from starlette import status
 from app.schemas.user import UserCreate, UserResponse
 from app.models.user import User
 from app.core.database import get_db
@@ -14,7 +15,7 @@ from app.core.auth import get_current_user
 
 router = APIRouter(prefix="/users", tags=["Users"])
 
-@router.post("/register", response_model=UserResponse)
+@router.post("/register", response_model=UserResponse, status_code=status.HTTP_201_CREATED)
 def register_user(user: UserCreate, db: Session = Depends(get_db)):
     # """
     # Register a new user.
